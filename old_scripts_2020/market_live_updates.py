@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-# bitcoinprice
-url = 'https://in.finance.yahoo.com/quote/BTC-INR?p=BTC-INR'
+# banknifty
+url = 'https://in.finance.yahoo.com/quote/%5ENSEBANK?p=%5ENSEBANK&.tsrc=fin-srch'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'lxml')
-bitcoin = soup.find_all('div',{'class':'D(ib) smartphone_Mb(10px) W(70%) W(100%)--mobp smartphone_Mt(6px)'} )[0].find('span').text
+banknifty = soup.find_all('div',{'class':'D(ib) smartphone_Mb(10px) W(70%) W(100%)--mobp smartphone_Mt(6px)'} )[0].find('span').text
 
 
 #nifty
@@ -34,7 +34,7 @@ print('usd/inr  : ' + usd)
 print('                            ')
 print('nifty    : ' + nifty)
 print('                            ')
-print('bitcoin  : ' + bitcoin)
+print('banknifty  : ' + banknifty)
 print('                            ')
 print('bse      : ' + bse)
 print('                            ')

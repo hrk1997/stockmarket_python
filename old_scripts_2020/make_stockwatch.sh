@@ -10,12 +10,13 @@
 #!/bin/bash
 read name
 read link
-
-echo "$name = BeautifulSoup(requests.get('$link').text, 'lxml')"
+echo "                                                          "
+echo "$name = BeautifulSoup(requests.get('$link').text, 'lxml') "
 echo "$name _price = $name.find_all('div',{'class':'My(6px) Pos(r) smartphone_Mt(6px)'} )[0].find('span').text"
+echo "                                                          "
 echo "print('$name     :: ' + $name _price)"
-print('                            ')
-print('                            ')
+echo "                                                          "
+
 
 # nifty50 = BeautifulSoup(requests.get('https://in.finance.yahoo.com/quote/%5ENSEI?p=%5ENSEI&.tsrc=fin-srch').text, 'lxml')
 # nifty50_price = nifty50.find_all('div',{'class':'My(6px) Pos(r) smartphone_Mt(6px)'} )[0].find('span').text
