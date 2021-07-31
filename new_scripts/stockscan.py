@@ -2,12 +2,11 @@ from selenium import webdriver
 browser = webdriver.Chrome()
 browser.get('https://www.moneycontrol.com/india/stockpricequote/banks-public-sector/statebankindia/SBI')
 
-open = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(1) > td.nseopn.bseopn')
-preclose = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(2) > td.nseprvclose.bseprvclose')
-volume = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(3) > td.nsevol.bsevol')
-
-value = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(4) > td.nsevalue.bsevalue')
-vwap = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(5) > td.nsevwap.bsevwap')
+m_open = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(1) > td.nseopn.bseopn')
+m_preclose = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(2) > td.nseprvclose.bseprvclose')
+m_volume = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(3) > td.nsevol.bsevol')
+m_value = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(4) > td.nsevalue.bsevalue')
+m_vwap = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(1) > table > tbody > tr:nth-child(5) > td.nsevwap.bsevwap')
 
 m_high    = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(2) > table > tbody > tr:nth-child(1) > td.nseHP.bseHP')
 m_low     = browser.find_element_by_css_selector('#stk_overview > div.nsestock_overview.bsestock_overview > div.mob-hide > div:nth-child(2) > table > tbody > tr:nth-child(2) > td.nseLP.bseLP')
@@ -28,7 +27,15 @@ m_avgdelivery = browser.find_element_by_css_selector('#stk_overview > div.nsesto
 m_stock = browser.find_element_by_css_selector('#stockName > h1')
 
 #= browser.find_element_by_css_selector('')
-stock        =m_stock.text
+open         = m_open.text
+preclose     = m_preclose.text
+volume       = m_volume.text
+value        = m_vwap.text
+vwap         = m_vwap.text
+
+
+
+stock        = m_stock.text
 high         = m_high.text
 low          = m_low.text
 uclimit      = m_uclimit.text
@@ -47,6 +54,10 @@ avg_voleme   = m_avgvoleume.text
 avg_delivery = m_avgdelivery.text
 
 print("     ",stock,"     ")
+print("open         : ",open)
+print("preclose     : ",preclose)
+print("volume       : ",volume)
+print("vwap         : ",vwap)
 print("high         : ",high)
 print("low          : ",low)
 print("uclimit      : ",uclimit)
@@ -64,3 +75,4 @@ print("divident     : ",divident)
 print("avg_voleme   : ",avg_voleme)
 print("avg_delivery : ",avg_delivery)
 
+browser.close()
